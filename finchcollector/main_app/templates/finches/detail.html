@@ -7,11 +7,16 @@
     <span class="card-title">{{ finch.name }}</span>
     <p>Breed: {{ finch.breed }}</p>
     <p>Description: {{ finch.description }}</p>
+    <p>Description: {{ finch.description }}</p>
     {% if finch.age > 0 %}
     <p>Age: {{ finch.age }}</p>
     {% else %}
     <p>Age: Little Birdie</p>
     {% endif %}
+  </div>
+  <div class="card-action">
+    <a href="{% url 'finches_update' finch.id %}">Edit</a>
+    <a href="{% url 'finches_delete' finch.id %}">Delete</a>
   </div>
 </div>
 

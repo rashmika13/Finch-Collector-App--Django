@@ -3,6 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 from .models import Finch
 
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 
 # class Finch:
 
@@ -31,6 +33,22 @@ def about(request):
 def finches_index(request):
     finches = Finch.objects.all()
     return render(request, 'finches/index.html', {'finches': finches})
+
+
+class FinchCreate(CreateView):
+    model = Finch
+    fields = '__all__'
+    # success_url = '/cats/'
+
+
+class FinchUpdate(UpdateView):
+    model = Finch
+    fields = ['breed', 'description', 'age']
+
+
+class FinchDelete(DeleteView):
+    model = Finch
+    success_url = '/finches/'
 
 
 def finches_detail(request, finch_id):
