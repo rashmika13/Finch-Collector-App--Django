@@ -18,6 +18,9 @@ urlpatterns = [
     path('finches/<int:finch_id>/add_feeding/',
          views.add_feeding, name='add_feeding'),
 
+    path('finches/<int:finch_id>/add_photo/',
+         views.add_photo, name='add_photo'),
+
 
     path('toys/', views.ToyList.as_view(), name='toys_index'),
     path('toys/<int:pk>/', views.ToyDetail.as_view(), name='toys_detail'),
