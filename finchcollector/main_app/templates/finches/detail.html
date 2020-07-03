@@ -20,6 +20,7 @@
       </div>
     </div>
     {% for photo in finch.photo_set.all %}
+    <a href="{% url 'photos_delete' finch.id photo.id%}">X</a>
     <img class="responsive-img card-panel" src="{{photo.url}}" />
     {% empty %}
     <div class="card-panel teal-text center-align">No Photos Uploaded</div>
@@ -96,7 +97,7 @@
       </div>
     </div>
     {% endfor %} {% else %}
-    <h5>{{cat.name}} Already Has All Toys Available</h5>
+    <h5>{{finch.name}} Already Has All Toys Available</h5>
     {% endif %}
   </div>
   <script>
